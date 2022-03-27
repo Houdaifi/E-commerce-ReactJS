@@ -5,12 +5,13 @@ const Navbar = () => {
     const clothes = ["Tops", "Dresses", "Pants", "Denim", "Sweaters", "T-Shirts", "Jackets", "Activewear", "Browse All"];
     const Accessories = ["Watches", "Wallets", "Bags", "Sunglasses", "Hats", "Belts"];
 
-    const [sidebar, set_show_side_bar] = useState(true);
+    const [sidebar, set_show_side_bar] = useState(false);
+    const [slide_bar, set_show_slide_bar] = useState(false);
 
     return (
     <div className="bg-white">
       {/* Begin of the sm side Navbar */} 
-      {sidebar && <div className="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
+      <div className={`fixed inset-0 flex z-40 lg:hidden ease-in-out duration-500 ${ sidebar ? "-translate-x-0" : "-translate-x-full"}`}>
           
         <div className="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
             <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
@@ -166,7 +167,6 @@ const Navbar = () => {
             </div>
             </div>  
         </div>
-        }
       {/* End of sm side Navbar */}
 
       {/* > sm Navbar */}
@@ -195,7 +195,9 @@ const Navbar = () => {
 
                   <div className="flex">
                     <div className="relative flex">
-                      <button type="button" className="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px" aria-expanded="false">Men</button>
+                      <button onClick={() => set_show_slide_bar(!slide_bar)} type="button" className="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px">
+                          Men
+                        </button>
                     </div>
 
                     <div className="absolute top-full inset-x-0 text-sm text-gray-500">
@@ -203,7 +205,7 @@ const Navbar = () => {
 
                       <div className="relative bg-white">
                         <div className="max-w-7xl mx-auto px-8">
-                          <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
+                          <div className={`grid grid-cols-2 gap-y-10 gap-x-8 py-16 ease-in-out duration-500 ${ slide_bar ? "translate-y-0" : "-translate-y-full"}`}>
                             
                             <div className="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
                               
@@ -261,9 +263,9 @@ const Navbar = () => {
                     </div>
                   </div>
 
-                  <a href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
+                  <a onClick={() => set_show_slide_bar(false)} href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Company</a>
 
-                  <a href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
+                  <a onClick={() => set_show_slide_bar(false)} href="#" className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800">Stores</a>
                 </div>
               </div>
 
