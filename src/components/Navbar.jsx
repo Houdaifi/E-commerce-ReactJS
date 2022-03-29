@@ -7,6 +7,7 @@ const Navbar = () => {
 
     const [sidebar, set_show_side_bar] = useState(false);
     const [slide_bar, set_show_slide_bar] = useState(false);
+    const [show_search_input, setSearch] = useState(false);
 
     return (
     <div className="bg-white">
@@ -17,152 +18,152 @@ const Navbar = () => {
             <div className="relative max-w-xs w-full bg-white shadow-xl pb-12 flex flex-col overflow-y-auto">
             <div className="px-4 pt-5 pb-2 flex">
                 <button onClick={() => set_show_side_bar(!sidebar)} type="button" className="-m-2 p-2 rounded-md inline-flex items-center justify-center text-gray-400">
-                <span className="sr-only">Close menu</span>
-                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                  <span className="sr-only">Close menu</span>
+                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                 </button>
             </div>
 
             <div className="mt-2">
                 <div className="border-b border-gray-200">
-                <div className="-mb-px flex px-4 space-x-8" aria-orientation="horizontal">
-                    <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" type="button">Women</button>
-                    <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" type="button">Men</button>
-                </div>
-                </div>
-
-                <div className="pt-10 pb-8 px-4 space-y-10" tabindex="0">
-                <div className="grid grid-cols-2 gap-x-4">
-                    <div className="group relative text-sm">
-                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                        <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." className="object-center object-cover"/>
-                    </div>
-                    <a href="#" className="mt-6 block font-medium text-gray-900">
-                        <span className="absolute z-10 inset-0" aria-hidden="true"></span>
-                        New Arrivals
-                    </a>
-                    <p aria-hidden="true" className="mt-1">Shop now</p>
-                    </div>
-
-                    <div className="group relative text-sm">
-                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                        <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg" alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees." className="object-center object-cover"/>
-                    </div>
-                    <a href="#" className="mt-6 block font-medium text-gray-900">
-                        <span className="absolute z-10 inset-0" aria-hidden="true"></span>
-                        Basic Tees
-                    </a>
-                    <p aria-hidden="true" className="mt-1">Shop now</p>
-                    </div>
+                  <div className="-mb-px flex px-4 space-x-8" aria-orientation="horizontal">
+                      <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" type="button">Women</button>
+                      <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap py-4 px-1 border-b-2 text-base font-medium" type="button">Men</button>
+                  </div>
                 </div>
 
-                <div>
-                    <p className="font-medium text-gray-900">Clothing</p>
-                    <ul className="mt-6 flex flex-col space-y-6">
-                        {clothes && clothes.map( (name) => { 
-                            return (
-                                <li className="flow-root">
+                <div className="pt-10 pb-8 px-4 space-y-10">
+                  <div className="grid grid-cols-2 gap-x-4">
+                      <div className="group relative text-sm">
+                      <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                          <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg" alt="Models sitting back to back, wearing Basic Tee in black and bone." className="object-center object-cover"/>
+                      </div>
+                      <a href="#" className="mt-6 block font-medium text-gray-900">
+                          <span className="absolute z-10 inset-0" aria-hidden="true"></span>
+                          New Arrivals
+                      </a>
+                      <p aria-hidden="true" className="mt-1">Shop now</p>
+                      </div>
+
+                      <div className="group relative text-sm">
+                      <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                          <img src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg" alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees." className="object-center object-cover"/>
+                      </div>
+                      <a href="#" className="mt-6 block font-medium text-gray-900">
+                          <span className="absolute z-10 inset-0" aria-hidden="true"></span>
+                          Basic Tees
+                      </a>
+                      <p aria-hidden="true" className="mt-1">Shop now</p>
+                      </div>
+                  </div>
+
+                  <div>
+                      <p className="font-medium text-gray-900">Clothing</p>
+                      <ul className="mt-6 flex flex-col space-y-6">
+                          {clothes && clothes.map( (name, key) => { 
+                              return (
+                                <li className="flow-root" key={key}>
                                     <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
                                 </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                              )
+                          })}
+                      </ul>
+                  </div>
 
-                <div>
-                    <p className="font-medium text-gray-900">Accessories</p>
-                    <ul role="list" className="mt-6 flex flex-col space-y-6">
-                        {Accessories && Accessories.map((name) => { 
-                            return (
-                                <li className="flow-root">
+                  <div>
+                      <p className="font-medium text-gray-900">Accessories</p>
+                      <ul role="list" className="mt-6 flex flex-col space-y-6">
+                          {Accessories && Accessories.map((name, key) => { 
+                              return (
+                                <li className="flow-root" key={key}>
                                     <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
                                 </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                              )
+                          })}
+                      </ul>
+                  </div>
 
                 </div>
 
-                <div className="pt-10 pb-8 px-4 space-y-10" role="tabpanel" tabindex="0">
-                <div className="grid grid-cols-2 gap-x-4">
-                    <div className="group relative text-sm">
-                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                        <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="Drawstring top with elastic loop closure and textured interior padding." className="object-center object-cover"/>
-                    </div>
-                    <a href="#" className="mt-6 block font-medium text-gray-900">
-                        <span className="absolute z-10 inset-0" aria-hidden="true"></span>
-                        New Arrivals
-                    </a>
-                    <p aria-hidden="true" className="mt-1">Shop now</p>
-                    </div>
+                <div className="pt-10 pb-8 px-4 space-y-10">
+                  <div className="grid grid-cols-2 gap-x-4">
+                      <div className="group relative text-sm">
+                      <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                          <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg" alt="Drawstring top with elastic loop closure and textured interior padding." className="object-center object-cover"/>
+                      </div>
+                      <a href="#" className="mt-6 block font-medium text-gray-900">
+                          <span className="absolute z-10 inset-0" aria-hidden="true"></span>
+                          New Arrivals
+                      </a>
+                      <p aria-hidden="true" className="mt-1">Shop now</p>
+                      </div>
 
-                    <div className="group relative text-sm">
-                    <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
-                        <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg" alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt." className="object-center object-cover"/>
-                    </div>
-                    <a href="#" className="mt-6 block font-medium text-gray-900">
-                        <span className="absolute z-10 inset-0" aria-hidden="true"></span>
-                        Artwork Tees
-                    </a>
-                    <p aria-hidden="true" className="mt-1">Shop now</p>
-                    </div>
-                </div>
+                      <div className="group relative text-sm">
+                      <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden group-hover:opacity-75">
+                          <img src="https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg" alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt." className="object-center object-cover"/>
+                      </div>
+                      <a href="#" className="mt-6 block font-medium text-gray-900">
+                          <span className="absolute z-10 inset-0" aria-hidden="true"></span>
+                          Artwork Tees
+                      </a>
+                      <p aria-hidden="true" className="mt-1">Shop now</p>
+                      </div>
+                  </div>
 
-                <div>
-                    <p className="font-medium text-gray-900">Clothing</p>
-                    <ul className="mt-6 flex flex-col space-y-6">
-                        {clothes && clothes.map( (name) => { 
-                            return (
-                                <li className="flow-root">
+                  <div>
+                      <p className="font-medium text-gray-900">Clothing</p>
+                      <ul className="mt-6 flex flex-col space-y-6">
+                          {clothes && clothes.map( (name, key) => { 
+                              return (
+                                <li className="flow-root" key={key}>
                                     <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
                                 </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                              )
+                          })}
+                      </ul>
+                  </div>
 
-                <div>
-                    <p className="font-medium text-gray-900">Accessories</p>
-                    <ul role="list" className="mt-6 flex flex-col space-y-6">
-                        {Accessories && Accessories.map((name) => { 
-                            return (
-                                <li className="flow-root">
+                  <div>
+                      <p className="font-medium text-gray-900">Accessories</p>
+                      <ul role="list" className="mt-6 flex flex-col space-y-6">
+                          {Accessories && Accessories.map((name, key) => { 
+                              return (
+                                <li className="flow-root" key={key}>
                                     <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
                                 </li>
-                            )
-                        })}
-                    </ul>
-                </div>
+                              )
+                          })}
+                      </ul>
+                  </div>
 
                 </div>
             </div>
 
             <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                 <div className="flow-root">
-                <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Company</a>
+                  <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Company</a>
                 </div>
 
                 <div className="flow-root">
-                <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Stores</a>
+                  <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Stores</a>
                 </div>
             </div>
 
             <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                 <div className="flow-root">
-                <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
+                  <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Sign in</a>
                 </div>
                 <div className="flow-root">
-                <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Create account</a>
+                  <a href="#" className="-m-2 p-2 block font-medium text-gray-900">Create account</a>
                 </div>
             </div>
 
             <div className="border-t border-gray-200 py-6 px-4">
                 <a href="#" className="-m-2 p-2 flex items-center">
-                <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" className="w-5 h-auto block flex-shrink-0"/>
-                <span className="ml-3 block text-base font-medium text-gray-900"> CAD </span>
-                <span className="sr-only">, change currency</span>
+                  <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" className="w-5 h-auto block flex-shrink-0"/>
+                  <span className="ml-3 block text-base font-medium text-gray-900"> CAD </span>
+                  <span className="sr-only">, change currency</span>
                 </a>
             </div>
             </div>  
@@ -179,7 +180,7 @@ const Navbar = () => {
               <button onClick={() => set_show_side_bar(!sidebar)} type="button" className="bg-white p-2 rounded-md text-gray-400 lg:hidden">
                 <span className="sr-only">Open menu</span>
                 <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               </button>
 
@@ -201,22 +202,21 @@ const Navbar = () => {
                     </div>
 
                     <div className="absolute top-full inset-x-0 text-sm text-gray-500">
-                      <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true"></div>
 
-                      <div className="relative bg-white">
+                      <div className={`relative bg-gray-50 ease-in-out duration-500 shadow ${ slide_bar ? "translate-y-0" : "-translate-x-full"}`}>
                         <div className="max-w-7xl mx-auto px-8">
-                          <div className={`grid grid-cols-2 gap-y-10 gap-x-8 py-16 ease-in-out duration-500 ${ slide_bar ? "translate-y-0" : "-translate-y-full"}`}>
+                          <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
                             
                             <div className="row-start-1 grid grid-cols-3 gap-y-10 gap-x-8 text-sm">
                               
                                 <div>
                                     <p className="font-medium text-gray-900">Clothing</p>
                                     <ul className="mt-6 flex flex-col space-y-6">
-                                        {clothes && clothes.map( (name) => { 
+                                        {clothes && clothes.map( (name, key) => { 
                                             return (
-                                                <li className="flow-root">
-                                                    <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
-                                                </li>
+                                              <li className="flow-root" key={key}>
+                                                  <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
+                                              </li>
                                             )
                                         })}
                                     </ul>
@@ -225,11 +225,11 @@ const Navbar = () => {
                                 <div>
                                     <p className="font-medium text-gray-900">Accessories</p>
                                     <ul role="list" className="mt-6 flex flex-col space-y-6">
-                                        {Accessories && Accessories.map((name) => { 
+                                        {Accessories && Accessories.map((name, key) => { 
                                             return (
-                                                <li className="flow-root">
-                                                    <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
-                                                </li>
+                                              <li className="flow-root" key={key}>
+                                                  <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
+                                              </li>
                                             )
                                         })}
                                     </ul>
@@ -284,19 +284,20 @@ const Navbar = () => {
                   </a>
                 </div>
 
-                <div className="flex lg:ml-6">
-                  <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                <div className="flex justify-center items-center lg:ml-6">
+                 {show_search_input && <input type="text" className="focus:ring-indigo-600 block w-44 h-8 px-2 border shadow text-sm border-gray-300 rounded-md"/>}
+                  <button className="p-2 text-gray-400 hover:text-gray-500" onClick={() => setSearch(!show_search_input)}>
                     <span className="sr-only">Search</span>
                     <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                  </a>
+                  </button>
                 </div>
 
                 <div className="ml-4 flow-root lg:ml-6">
                   <a href="#" className="group -m-2 p-2 flex items-center">
                     <svg className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                     </svg>
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                     <span className="sr-only">items in cart, view bag</span>
