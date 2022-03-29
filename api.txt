@@ -1,0 +1,5 @@
+https://rapidapi.com/apidojo/api/hm-hennes-mauritz/
+headers: {
+      'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com',
+      'X-RapidAPI-Key': 'ddedf1a199msh79f632c48fef84fp184e2djsn71e288627a16'
+    }

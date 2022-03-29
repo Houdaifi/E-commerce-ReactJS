@@ -174,7 +174,7 @@ const Navbar = () => {
       <header className="relative bg-white">
         <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
 
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="px-4 sm:px-6 lg:px-8">
           <div className="border-b border-gray-200">
             <div className="h-16 flex items-center">
               <button onClick={() => set_show_side_bar(!sidebar)} type="button" className="bg-white p-2 rounded-md text-gray-400 lg:hidden">
@@ -198,12 +198,12 @@ const Navbar = () => {
                     <div className="relative flex">
                       <button onClick={() => set_show_slide_bar(!slide_bar)} type="button" className="border-transparent text-gray-700 hover:text-gray-800 relative z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px">
                           Men
-                        </button>
+                      </button>
                     </div>
 
                     <div className="absolute top-full inset-x-0 text-sm text-gray-500">
 
-                      <div className={`relative bg-gray-50 ease-in-out duration-500 shadow ${ slide_bar ? "translate-y-0" : "-translate-x-full"}`}>
+                      <div className={`relative z-20 bg-white ease-in-out duration-500 shadow ${ slide_bar ? "translate-y-0" : "-translate-x-full"}`}>
                         <div className="max-w-7xl mx-auto px-8">
                           <div className="grid grid-cols-2 gap-y-10 gap-x-8 py-16">
                             
@@ -215,7 +215,7 @@ const Navbar = () => {
                                         {clothes && clothes.map( (name, key) => { 
                                             return (
                                               <li className="flow-root" key={key}>
-                                                  <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
+                                                  <a href="#" className="-m-2 p-2 block text-gray-500 hover:text-gray-800">{name}</a>
                                               </li>
                                             )
                                         })}
@@ -228,7 +228,7 @@ const Navbar = () => {
                                         {Accessories && Accessories.map((name, key) => { 
                                             return (
                                               <li className="flow-root" key={key}>
-                                                  <a href="#" className="-m-2 p-2 block text-gray-500">{name}</a>
+                                                  <a href="#" className="-m-2 p-2 block text-gray-500 hover:text-gray-800">{name}</a>
                                               </li>
                                             )
                                         })}
