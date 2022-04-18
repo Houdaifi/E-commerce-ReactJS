@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import axios from "axios";
 
-const Navbar = () => {
+const Navbar = forwardRef((props, ref) => {
 
-    
     const [Sub_Categories, setSubCategories] = useState([]);
 
     const clothes = ["Tops", "Dresses", "Pants", "Denim", "Sweaters", "T-Shirts", "Jackets", "Activewear", "Browse All"];
@@ -49,8 +48,16 @@ const Navbar = () => {
       }
     }
 
+    useImperativeHandle(ref, () => ({
+
+      closeSlideBar() {
+        set_show_slide_bar(false);
+      }
+  
+    }));
+
     return (
-      <div className="bg-white">
+      <div className="bg-red-500" id="nav-bar">
         {/* Begin of the sm side Navbar */} 
         <div className={`fixed inset-0 flex z-40 lg:hidden ease-in-out duration-500 ${ sidebar ? "-translate-x-0" : "-translate-x-full"}`}>
             
@@ -212,7 +219,7 @@ const Navbar = () => {
 
         {/* > sm Navbar */}
         <header className="relative bg-white">
-          <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
+          <p  onClick={() => set_show_slide_bar(false)} className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
 
           <nav className="px-4 sm:px-6 lg:px-8">
             <div className="border-b border-gray-200">
@@ -235,7 +242,7 @@ const Navbar = () => {
                   <div className="h-full flex space-x-8">
 
                     <div className="flex">
-                      <div className="relative flex space-x-8">
+                      <div className="relative flex space-x-8 bg-red-600">
                         {Categories.length > 0 && Categories.map((category, key) => {
                           return (
                             <button key={key} onClick={() => show_slide_bar(category.CatName)} type="button"
@@ -247,30 +254,30 @@ const Navbar = () => {
                         })}
                       </div>
 
-                      <div className="absolute top-full inset-x-0 text-sm text-gray-500">
+                      <div className={`absolute top-full inset-x-0 text-sm text-gray-500 ${slide_bar ? "block" : "hidden"}`}>
 
                         <div className={`relative z-20 bg-gray-50 ease-in-out duration-500 shadow ${ slide_bar ? "translate-y-0" : "-translate-x-full"}`}>
                           <div className="max-w-7xl mx-auto">
                             <div className="grid grid-cols-1 gap-y-10 gap-x-8 py-16">
                               
                               <div className="grid grid-cols-6 gap-y-10 gap-x-8 text-sm">
-                                {Sub_Categories[0] && Sub_Categories[0].CategoriesArray.length > 0 && Sub_Categories[0].CategoriesArray.map((category, key) => {
+                                {Sub_Categories[0] && Sub_Categories[0].CategoriesArray && Sub_Categories[0].CategoriesArray.map((category, key) => {
                                     return (
                                       <div key={key}>
                                         <p className="font-medium text-gray-900">{category.CatName}</p>
                                         <ul className="mt-6 flex flex-col space-y-6">
-                                            {category.CategoriesArray && category.CategoriesArray.map( (name, key) => { 
+                                          {category.CategoriesArray && category.CategoriesArray.map( (name, key) => { 
                                               if(key > 5){
                                                 return 
                                               }else {
                                                 return (
                                                   <li className="flow-root" key={key}>
-                                                      <a href="#" className="-m-2 p-2 block text-gray-500 hover:text-gray-800">{name.CatName}</a>
+                                                    <a href="#" className="-m-2 p-2 block text-gray-500 hover:text-gray-800">{name.CatName}</a>
                                                   </li>
                                                 )
                                               }
-                                              
-                                            })}
+                                            })
+                                          }
                                         </ul>
                                       </div>
                                     )
@@ -328,6 +335,6 @@ const Navbar = () => {
         </header>
       </div>
     );
-}
+});
 
 export default Navbar;
