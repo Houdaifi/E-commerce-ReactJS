@@ -13,14 +13,15 @@ function App() {
   //     'X-RapidAPI-Key': 'ddedf1a199msh79f632c48fef84fp184e2djsn71e288627a16'
   //   }
   // };
+
   const navBarRef = useRef();
   
   return (
     <div className="bg-gray-50">
       <Navbar ref={navBarRef} />
       {/* <Category/> */}
-      {/* <Promo/> */}
-      <div className="flex justify-center items-center w-screen h-screen cursor-pointer" onClick={() => navBarRef.current.closeSlideBar()}></div>
+      <Promo/>
+      {/* <div className="flex justify-center items-center w-screen h-screen cursor-pointer" onClick={() => navBarRef.current.closeSlideBar()}></div> */}
     </div>
   );
 }
