@@ -7064,9 +7064,9 @@ const Navbar = forwardRef((props, ref) => {
 
                 <div className="ml-auto flex items-center">
                   <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <a href="#" className="text-sm font-medium text-white hover:text-gray-50">Sign in</a>
-                    <span className="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                    <a href="#" className="text-sm font-medium text-white hover:text-gray-50">Create account</a>
+                    <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800 bg-white rounded-md px-2 py-1">Sign in</a>
+                    <span className="h-6 w-px bg-white" aria-hidden="true"></span>
+                    <a href="#" className="text-sm font-medium text-white hover:text-gray-800 bg-amber-600 rounded-md px-2 py-1">Create account</a>
                   </div>
 
                   <div className="hidden lg:ml-8 lg:flex">
@@ -7078,7 +7078,7 @@ const Navbar = forwardRef((props, ref) => {
                   </div>
 
                   <div className="flex justify-center items-center lg:ml-6">
-                  {show_search_input && <input type="text" className="block w-44 h-8 px-2 bg-yellow-500 border shadow text-sm border-gray-300 rounded-md"/>}
+                  {show_search_input && <input type="text" className="block w-44 h-8 px-2 bg-gray-200 border border-gray-500 shadow text-sm opacity-90 focus:outline-none focus:border-0 focus:ring-yellow-500 focus:ring-2 rounded-md"/>}
                     <button className="p-2 text-white hover:text-gray-50" onClick={() => setSearch(!show_search_input)}>
                       <span className="sr-only">Search</span>
                       <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
