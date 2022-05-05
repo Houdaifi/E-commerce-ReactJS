@@ -6986,8 +6986,8 @@ const Navbar = forwardRef((props, ref) => {
         {/* End of sm side Navbar */}
 
         {/* > sm Navbar */}
-        <header className="relative bg-white">
-          <p  onClick={() => set_show_slide_bar(false)} className="bg-gray-100 text-gray-900 h-10 flex items-center justify-center text-sm font-medium px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
+        <header className="relative bg-hero-pattern">
+          <p onClick={() => set_show_slide_bar(false)} className="bg-gray-100 text-gray-900 h-10 flex items-center justify-center text-sm font-medium px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
 
           <nav className="px-4 sm:px-6 lg:px-8">
             <div className="border-b border-gray-200">
@@ -7014,7 +7014,7 @@ const Navbar = forwardRef((props, ref) => {
                         {Categories.length > 0 && Categories.map((category, key) => {
                           return (
                             <button key={key} onClick={() => show_slide_bar(category.CatName)} type="button"
-                              className="border-transparent text-gray-700 hover:text-gray-800 relative
+                              className="border-transparent text-white hover:text-gray-100 relative
                                         z-10 flex items-center transition-colors ease-out duration-200 text-sm font-medium border-b-2 -mb-px pt-px">
                               {category.CatName}
                             </button>
@@ -7024,7 +7024,7 @@ const Navbar = forwardRef((props, ref) => {
 
                       <div className={`absolute top-full inset-x-0 text-sm text-gray-500 ${slide_bar ? "block" : "hidden"}`}>
 
-                        <div className={`relative z-20 bg-gray-50 ease-in-out duration-500 shadow ${ slide_bar ? "translate-y-0" : "-translate-x-full"}`}>
+                        <div className={`relative z-20 bg-gray-50 opacity-95 ease-in-out duration-500 shadow ${ slide_bar ? "translate-y-0" : "-translate-x-full"}`}>
                           <div className="max-w-7xl mx-auto">
                             <div className="grid grid-cols-1 gap-y-10 gap-x-8 py-16">
                               
@@ -7032,7 +7032,7 @@ const Navbar = forwardRef((props, ref) => {
                                 {Sub_Categories[0] && Sub_Categories[0].CategoriesArray && Sub_Categories[0].CategoriesArray.map((category, key) => {
                                     return (
                                       <div key={key}>
-                                        <p className="font-medium text-gray-900">{category.CatName}</p>
+                                        <p className="font-medium text-yellow-600">{category.CatName}</p>
                                         <ul className="mt-6 flex flex-col space-y-6">
                                           {category.CategoriesArray && category.CategoriesArray.map( (name, key) => { 
                                               if(key > 5){
@@ -7064,13 +7064,13 @@ const Navbar = forwardRef((props, ref) => {
 
                 <div className="ml-auto flex items-center">
                   <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                    <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
+                    <a href="#" className="text-sm font-medium text-white hover:text-gray-50">Sign in</a>
                     <span className="h-6 w-px bg-gray-200" aria-hidden="true"></span>
-                    <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+                    <a href="#" className="text-sm font-medium text-white hover:text-gray-50">Create account</a>
                   </div>
 
                   <div className="hidden lg:ml-8 lg:flex">
-                    <a href="#" className="text-gray-700 hover:text-gray-800 flex items-center">
+                    <a href="#" className="text-white hover:text-gray-50 flex items-center">
                       <img src="https://tailwindui.com/img/flags/flag-canada.svg" alt="" className="w-5 h-auto block flex-shrink-0"/>
                       <span className="ml-3 block text-sm font-medium"> CAD </span>
                       <span className="sr-only">, change currency</span>
@@ -7078,8 +7078,8 @@ const Navbar = forwardRef((props, ref) => {
                   </div>
 
                   <div className="flex justify-center items-center lg:ml-6">
-                  {show_search_input && <input type="text" className="focus:ring-indigo-600 block w-44 h-8 px-2 border shadow text-sm border-gray-300 rounded-md"/>}
-                    <button className="p-2 text-gray-400 hover:text-gray-500" onClick={() => setSearch(!show_search_input)}>
+                  {show_search_input && <input type="text" className="block w-44 h-8 px-2 bg-yellow-500 border shadow text-sm border-gray-300 rounded-md"/>}
+                    <button className="p-2 text-white hover:text-gray-50" onClick={() => setSearch(!show_search_input)}>
                       <span className="sr-only">Search</span>
                       <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -7089,10 +7089,10 @@ const Navbar = forwardRef((props, ref) => {
 
                   <div className="ml-4 flow-root lg:ml-6">
                     <a href="#" className="group -m-2 p-2 flex items-center">
-                      <svg className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <svg className="flex-shrink-0 h-6 w-6 text-white group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                       </svg>
-                      <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                      <span className="ml-2 text-sm font-medium text-white group-hover:text-gray-800">0</span>
                       <span className="sr-only">items in cart, view bag</span>
                     </a>
                   </div>

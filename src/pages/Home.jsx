@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Promo from "../components/Promo";
 import Category from "../components/Category";
 
@@ -6,10 +6,10 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Product</h1>
-            <nav>
+            <Promo/>
+            {/* <nav>
                 <Link className="text-blue-500" to="/products">Product</Link>
-            </nav>
+            </nav> */}
         </div>
     );
 }

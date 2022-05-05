@@ -13,7 +13,7 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 bg-hero-pattern">
         <Navbar ref={navBarRef} />
         <div onClick={() => {closeSlideBar()}} className="min-h-screen">
           <Routes>
