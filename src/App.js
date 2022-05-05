@@ -7,14 +7,20 @@ import Product from "./pages/Product";
 function App() {
   const navBarRef = useRef();
 
+  const closeSlideBar = () => {
+    navBarRef.current.closeSlideBar();
+  };
+
   return (
     <Router>
       <div className="bg-gray-50">
         <Navbar ref={navBarRef} />
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/products" element={<Product />}/>
-        </Routes>
+        <div onClick={() => {closeSlideBar()}} className="min-h-screen">
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            <Route path="/products" element={<Product />}/>
+          </Routes>
+        </div>
       </div>
     </Router>
   );

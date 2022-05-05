@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Category from "../components/Category";
 import Promo from "../components/Promo";
+import Category from "../components/Category";
 
 const Home = () => {
 
@@ -13,5 +13,5 @@ const Home = () => {
         </div>
     );
 }
- 
+
 export default Home;
