@@ -7,9 +7,6 @@ const Home = () => {
     return (
         <div>
             <Promo/>
-            {/* <nav>
-                <Link className="text-blue-500" to="/products">Product</Link>
-            </nav> */}
         </div>
     );
 }

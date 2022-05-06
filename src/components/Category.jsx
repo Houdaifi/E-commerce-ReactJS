@@ -1,18 +1,8 @@
 import { useState } from 'react';
-import axios from "axios";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 const Category = () => {
-    // const options = {
-    //     method: 'GET',
-    //     url: process.env.REACT_APP_API_URL + '/categories/list',
-    //     params: {lang: 'en', country: 'asia2'},
-    //     headers: {
-    //       'X-RapidAPI-Host': process.env.REACT_APP_Category_X_RapidAPI_Host,
-    //       'X-RapidAPI-Key': process.env.REACT_APP_Category_X_RapidAPI_Key
-    //     }
-    // };
     
     const items = [
         <div data-value="1" className="rounded-full flex flex-col items-center justify-center bg-white dark:bg-gray-700 p-8 w-48 h-48 lg:w-52 lg:h-52 mx-6 space-y-6">
@@ -56,15 +46,6 @@ const Category = () => {
     };
 
     const [categories, setCategories] = useState([]);
-
-    // useEffect(() => {
-    //     axios.request(options).then(function (response) {
-    //         setCategories(response)
-    //         console.log(response.data);
-    //     }).catch(function (error) {
-    //         console.error(error);
-    //     });
-    // });
 
     return (
         <div className=''>

@@ -7,8 +7,8 @@ const Promo = () => {
             </style>
             <div className="flex flex-col space-y-10 justify-center items-center text-xl">
                 <h2 className="text-4xl text-white font font-bold tracking-tight">Find Clearance Up to 80% Off</h2>
-                <span className="text-4xl font font-extrabold tracking-tight text-orange-500 sm:text-8xl p-2   
-                    before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-gray-100 relative inline-block   "
+                <span className="text-4xl font font-extrabold tracking-tight text-amber-500 sm:text-8xl p-5   
+                    before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-slate-100 relative inline-block"
                 style={{  
                     fontFamily: "'Bangers', cursive"
                 }} >
