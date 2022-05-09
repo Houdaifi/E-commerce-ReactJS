@@ -1,11 +1,14 @@
-export default routes = [
+import Home from "./pages/Home";
+import Product from "./pages/Product";
+
+export const routes = [
   {
     path: "/",
     exact: true,
-    component: () => <h2>Home</h2>
+    component: <Home/>
   },
   {
-    path: "/Product",
-    component: () => <h2>Product</h2>
+    path: "/products",
+    component:  <Product/>
   }
 ];

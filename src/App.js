@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { useRef } from "react";
+import {routes} from "./routes";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Product from "./pages/Product";
 
 function App() {
   const navBarRef = useRef();
@@ -17,8 +16,11 @@ function App() {
         <Navbar ref={navBarRef} />
         <div onClick={() => {closeSlideBar()}} className="min-h-screen">
           <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/products" element={<Product />}/>
+            {routes.map((route, index) => {
+              return (
+                <Route key={index} path={route.path} exact={route.exact} element={route.component}/>
+              )
+            })}
           </Routes>
         </div>
       </div>
