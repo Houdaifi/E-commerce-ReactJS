@@ -1,7 +1,11 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const Navbar = forwardRef((props, ref) => {
+
+    const cart = useSelector(state => state.cart)
+    const dispatch = useDispatch();
 
     const [Categories, setCategories] = useState(
       [
@@ -6986,7 +6990,7 @@ const Navbar = forwardRef((props, ref) => {
         {/* End of sm side Navbar */}
 
         {/* > sm Navbar */}
-        <header className="relative bg-hero-pattern">
+        <header className="relative">
           <p onClick={() => set_show_slide_bar(false)} className="bg-gray-100 text-gray-900 h-10 flex items-center justify-center text-sm font-medium px-4 sm:px-6 lg:px-8">Get free delivery on orders over $100</p>
 
           <nav className="px-4 sm:px-6 lg:px-8">

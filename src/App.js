@@ -12,9 +12,9 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-gray-50 bg-hero-pattern">
+      <div className="bg-gray-50 bg-hero-pattern bg-cover">
         <Navbar ref={navBarRef} />
-        <div onClick={() => {closeSlideBar()}} className="min-h-screen">
+        <div onClick={() => {closeSlideBar()}}>
           <Routes>
             {routes.map((route, index) => {
               return (

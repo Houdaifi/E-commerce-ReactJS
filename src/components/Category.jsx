@@ -48,7 +48,7 @@ const Category = () => {
     const [categories, setCategories] = useState([]);
 
     return (
-        <div className=''>
+        <div className='bg-yellow-200 w-full py-4 h-full'>
             <AliceCarousel
                 animationDuration={5000}
                 disableDotsControls
