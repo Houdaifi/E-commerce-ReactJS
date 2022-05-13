@@ -1,10 +1,14 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import {
+  increment,
+  selectCount
+} from '../redux/reducers/cart';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Navbar = forwardRef((props, ref) => {
 
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector(selectCount);
     const dispatch = useDispatch();
 
     const [Categories, setCategories] = useState(
@@ -7092,13 +7096,13 @@ const Navbar = forwardRef((props, ref) => {
                   </div>
 
                   <div className="ml-4 flow-root lg:ml-6">
-                    <a href="#" className="group -m-2 p-2 flex items-center">
+                    <button onClick={() => dispatch(increment())} className="group -m-2 p-2 flex items-center">
                       <svg className="flex-shrink-0 h-6 w-6 text-white group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                       </svg>
-                      <span className="ml-2 text-sm font-medium text-white group-hover:text-gray-800">0</span>
+                      <span className="ml-2 text-sm font-medium text-white group-hover:text-gray-800">{cart}</span>
                       <span className="sr-only">items in cart, view bag</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
