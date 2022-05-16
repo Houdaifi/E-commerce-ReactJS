@@ -7040,7 +7040,7 @@ const Navbar = forwardRef((props, ref) => {
                                 {Sub_Categories[0] && Sub_Categories[0].CategoriesArray && Sub_Categories[0].CategoriesArray.map((category, key) => {
                                     return (
                                       <div key={key}>
-                                        <p className="font-medium text-yellow-600">{category.CatName}</p>
+                                        <p className="font-medium text-orange-500">{category.CatName}</p>
                                         <ul className="mt-6 flex flex-col space-y-6">
                                           {category.CategoriesArray && category.CategoriesArray.map( (name, key) => { 
                                               if(key > 5){
@@ -7071,10 +7071,10 @@ const Navbar = forwardRef((props, ref) => {
                 </div>
 
                 <div className="ml-auto flex items-center">
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 text-center">
                     <a href="#" className="text-sm font-medium text-gray-700 hover:text-gray-800 bg-white hover:bg-gray-100 rounded-md px-2 py-1">Sign in</a>
                     <span className="h-6 w-px bg-white" aria-hidden="true"></span>
-                    <a href="#" className="text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 rounded-md px-2 py-1">Create account</a>
+                    <a href="#" className="text-sm font-medium text-white bg-orange-400 hover:bg-orange-500 rounded-md px-2 py-1">Create account</a>
                   </div>
 
                   <div className="hidden lg:ml-8 lg:flex">
@@ -7097,11 +7097,10 @@ const Navbar = forwardRef((props, ref) => {
 
                   <div className="ml-4 flow-root lg:ml-6">
                     <button onClick={() => dispatch(increment())} className="group -m-2 p-2 flex items-center">
-                      <svg className="flex-shrink-0 h-6 w-6 text-white group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <svg className="flex-shrink-0 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                       </svg>
-                      <span className="ml-2 text-sm font-medium text-white group-hover:text-gray-800">{cart}</span>
-                      <span className="sr-only">items in cart, view bag</span>
+                      <span className="ml-2 text-sm font-medium text-white text-center bg-orange-400 hover:bg-orange-500 rounded-full w-5 h-5">{cart}</span>
                     </button>
                   </div>
                 </div>
